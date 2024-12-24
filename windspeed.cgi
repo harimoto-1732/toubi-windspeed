@@ -21,7 +21,7 @@ sub yamane_debug {
 		$min = sprintf("%.2d",$min);
 
 		#フォーマット指定 例　2003/03/15(土) 20:12:12
-		my $today = "$year/$mon/$mday $hour:$min:$sec ";
+		my $today = "$year/$mon/$mday $hour:$min:$sec";
 	
 		open(DATAFILE, ">>", "yamane_log.txt") or die("Error:$!");
 		print DATAFILE $today;
@@ -37,7 +37,11 @@ $mon++;	#月数には1を足す。
 $mon = sprintf("%.2d",$mon);	#2桁表示に統一する。
 $mday = sprintf("%.2d",$mday);
 # UTF8 文字コード変換出力ファイル
-my $windfile=sprintf("./data/KURASHIKI_%d%.2d%.2d.csv", 1900+$year, $mon, $mday);
+my $windfile = sprintf("./data/%d%.2d%.2d.csv", 1900+$year, $mon, $mday);
+my $dldate = sprintf("%d%.2d%.2d", 1900+$year, $mon, $mday);
+my $time = sprintf("%.2d:%.2d", $hour, $min);
+my $line;
+my $latest_time = substr($time, 0, 4);
 my ($n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9);
 
 =pod
@@ -58,7 +62,7 @@ if( !(-f $windfile) ) {
 
 	print "<html lang=\"ja\">\n";
 	print "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
-	print "<head><title>片上大橋　風速モニタリングシステム</title></head>\n";
+	print "<head><title>片上大橋　風向風速監視システム</title></head>\n";
 	print "<body>\n";
 	print "<br/>\n";
 	print "<p>$windfile ファイルが存在しません。</p>\n";
@@ -73,19 +77,22 @@ if( !(-f $windfile) ) {
 open (INN, "< $windfile") or die "$!";
 my @arr = <INN>;
 close( INN );
-my $line = pop( @arr );
-	($n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9) = split(/,/, $line);
-# 最新測定時間
-my $latest_time = $n1;
-# 風向、風速取得
-my @dname = ("北","北北東","北東", "東北東", "東", "東南東", "南東", "南南東", "南", "南南西", "南西", "西南西", "西", "西北西", "北西", "北北西", "北");
-#my $dindex = int( $n2 / 22.5 )+.5;
-if ($n2 < 1 || $n2 > 16){
-	$n2 = 1;	# 北に設定
+foreach my $element (@arr) {
+	if (substr($element, 0, 4) eq $latest_time) {
+		$line = $element;
+		last;
+	}
 }
-my $dindex = $n4-1;
-my $wind_direction = $dname[$dindex];
-my $wind_average = $n8;
+if (defined $line) {
+	($n1, $n2, $n3, $n4, $n5, $n6, $n7, $n8, $n9) = split(/,/, $line);
+} else {
+	warn "No matching element.";
+}
+# 最新測定時間
+$latest_time = $n1;
+# 風向、風速取得
+my $wind_direction = $n3;
+my $wind_average = $n2;
 #print $windo, "\n";
 #print $average, "\n";
 # <!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">
