@@ -200,6 +200,13 @@ my $mydisp_1 = <<"DISP_1";
 	</div>
 DISP_1
 
+my $mydisp_c = <<"DISP_c";
+	<div class="camera">
+		<br/>
+		<a href="http://219.121.50.242:8000"><img width=100% src="../pic/cam.jpg"></a>
+	</div>
+DISP_c
+
 my $mydisp_2 = <<"DISP_2";
 	</div>
 		<br/><br/>
@@ -219,15 +226,15 @@ DISP_2
 # ここから処理
 print $myhead;
 
-print "<header><h1>片上大橋　風向風速監視システム</h1></header>\n";
+print "<header>\n";
+print "  <h1>片上大橋　風向風速監視システム</h1>\n";
+print "</header>\n";
 
 # TABLEを設定
 print "<TABLE WIDTH=312 BORDER=1 CELLSPACING=0 CELLPADDING=4>\n";
 #print "<thead><TR><TH ALIGN=center ROWSPAN=1 BGCOLOR=\"#4169e1\"><FONT SIZE=\"+1\"; color=#ffffff>倉敷みなと大橋</FONT></TH></TR></thead>\n";
 print "<TR>\n";
 print "	<TD ALIGN=center ROWSPAN=1 BGCOLOR=\"#FFFFFF\"><FONT SIZE=\"-1\">\n";
-print "		<br/><br/>", "\n";
-print "		最新データ", "\n";
 print "		<br/>", "\n";
 print "		<div style=\"line-height:90%\"; class=\"right-pos\">\n";
 # 日付を設定
@@ -244,7 +251,10 @@ print "		<div class=\"blue-box\">\n";
 print "		$wind_average m/s\n";	
 print "		</div>\n";	
 print "	</div>\n";	
-	
+print $mydisp_c;
+my $picfile = "../pic/cam.jpg";
+my $modiftime = substr(localtime((stat $picfile)[9]), 11, 5);
+print "    <p>$modiftime </p>\n";
 print $mydisp_2;
 print $mytaile;
 
