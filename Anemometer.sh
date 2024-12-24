@@ -1,7 +1,7 @@
 #!/bin/bash
 
 head="/var/www/html/wind/data/"
-if [ $(date '+%H%M') = '0001' ]; then
+if [ $(date '+%H%M') = '0000' ]; then
     url="http://192.168.62.100/csv_download.php?type=ten_min&date="$(date '+%Y/%m/%d' --date 'yesterday')
     name=$head + $(date '+%Y%m%d' --date 'yesterday').csv
 else
