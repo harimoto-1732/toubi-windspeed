@@ -58,7 +58,7 @@ if( !(-f $windfile) ) {
 
 	print "<html lang=\"ja\">\n";
 	print "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n";
-	print "<head><title>倉敷みなと大橋　風速モニタリングシステム</title></head>\n";
+	print "<head><title>片上大橋　風速モニタリングシステム</title></head>\n";
 	print "<body>\n";
 	print "<br/>\n";
 	print "<p>$windfile ファイルが存在しません。</p>\n";
@@ -97,7 +97,7 @@ content-type: text/html
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta name="viewport" content="width=device-width">
-<title>倉敷みなと大橋　風速モニタリングシステム</title>
+<title>片上大橋　風向風速監視システム</title>
 <style>
 .right-pos {
 	background-color: #ffffff;
@@ -205,14 +205,14 @@ my $mydisp_2 = <<"DISP_2";
 	</TD> 
 </TR>
 </TABLE>
-<footer><f1>岡山県備中県民局 水島港湾事務所</f1></footer>
+<footer><f1>岡山県備前県民局　東備地域維持補修班</f1></footer>
 DISP_2
 
 
 # ここから処理
 print $myhead;
 
-print "<header><h1>倉敷みなと大橋</h1></header>\n";
+print "<header><h1>片上大橋　風向風速監視システム</h1></header>\n";
 
 # TABLEを設定
 print "<TABLE WIDTH=312 BORDER=1 CELLSPACING=0 CELLPADDING=4>\n";
