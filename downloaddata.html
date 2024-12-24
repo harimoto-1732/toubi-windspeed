@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>片上大橋　風向風速監視システム</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./jquery/jquery-ui.css">
+  <script src="./jquery/jquery-3.6.0.min.js"></script>
+  <script src="./jquery/jquery.ui.datepicker-ja.min.js"></script>
+  <script src="./jquery/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      // 初期値設定
+      var date = new Date();
+      var yyyy = date.getFullYear();
+      var mm = String(date.getMonth() + 1).padStart(2, '0');
+      var dd = String(date.getDate()).padStart(2, '0');
+      var today = yyyy + '-' + mm + '-' + dd;
+      var minDate = new Date(2024, 10, 20);
+
+      // Datepicker設定
+      $("#datestart").datepicker({
+        changeYear: true,
+        changeMonth: true,
+        dateFormat: 'yy-mm-dd',
+        defaultDate: today,
+        minDate: minDate,
+        maxDate: date
+      }).val(today);
+      $("#dateend").datepicker({
+        changeYear: true,
+        changeMonth: true,
+        dateFormat: 'yy-mm-dd',
+        defaultDate: today,
+        minDate: minDate,
+        maxDate: date
+      }).val(today);
+    });
+  </script>
+</head>
+<body>
+  <center>
+    <header>
+      <h1>片上大橋　風向風速監視システム</h1>
+    </header>
+    <form method="post" action="/wind/downloaddata.cgi" enctype="multipart/form-data">
+      <div class="radio">
+        <label><input type="radio" name="directory" value="dir1" checked>風速データ</label>
+        <label><input type="radio" name="directory" value="dir2">画像データ</label>
+      </div>
+      <div class="dateselect">
+        <input type="text" name="date-start" id="datestart" class="date-input"> ～ <input type="text" name="date-end" id="dateend" class="date-input">
+      </div>
+      <div class="button">
+        <input type="submit" class="btn_01 pad4_10" value="ダウンロード" style="display: inline-block;"><br>
+        <a href="./windspeed.cgi" class="btn_01 pad4_10" style="display: inline-block;">前のページへ</a>
+      </div>
+    </form>
+    <footer>
+      <f1>岡山県備前県民局　東備地域維持補修課</f1>
+    </footer>
+  </center>
+</body>
+</html>
