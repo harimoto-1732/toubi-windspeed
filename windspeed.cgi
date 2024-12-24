@@ -140,6 +140,7 @@ my $mydisp_2 = <<"DISP_2";
 		<a href="./dailydata.html" class="btn_01 pad4_10" style="display:inline-block;">日報表示</a><a href="" class="btn_01 pad4_10" style="display:inline-block;">ダウンロード</a>
 		<br/><br/>
 	</div>
+	<a href="http://219.121.50.242:81/CodeIgniter/index.php">詳細画面へ</a>
 	</TD> 
 </TR>
 </TABLE>
