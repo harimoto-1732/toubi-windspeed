@@ -143,7 +143,7 @@ my $mydisp_2 = <<"DISP_2";
 	</TD> 
 </TR>
 </TABLE>
-<footer><f1>岡山県備前県民局　東備地域維持補修班</f1></footer>
+<footer><f1>岡山県備前県民局　東備地域維持補修課</f1></footer>
 DISP_2
 
 
