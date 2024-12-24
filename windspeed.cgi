@@ -106,11 +106,8 @@ content-type: text/html
 <meta name="viewport" content="width=device-width">
 <title>片上大橋　風向風速監視システム</title>
 </head>
-<br/>
 <body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#ff00ff" alink="#ff0000">
 <center>
-
-<br/>
 HEADD
 
 my $mytaile = <<"TAILE";
@@ -138,14 +135,11 @@ my $mydisp_c = <<"DISP_c";
 DISP_c
 
 my $mydisp_2 = <<"DISP_2";
+	<div class="button">
+		<br/>
+		<a href="./dailydata.html" class="btn_01 pad4_10" style="display:inline-block;">日報表示</a><a href="" class="btn_01 pad4_10" style="display:inline-block;">ダウンロード</a>
+		<br/><br/>
 	</div>
-		<br/><br/>
-		過去データ
-		<br/><br/>
-		<a href="./dailylist.html" class="btn_01 pad4_10">　日報表示　</a>
-		<br/><br/>
-		<a href="./fileselect.html" class="btn_01 pad4_10">ダウンロード</a>
-		<br/><br/><br/>
 	</TD> 
 </TR>
 </TABLE>
@@ -161,7 +155,7 @@ print "  <h1>片上大橋　風向風速監視システム</h1>\n";
 print "</header>\n";
 
 # TABLEを設定
-print "<TABLE WIDTH=312 BORDER=1 CELLSPACING=0 CELLPADDING=4>\n";
+print "<table width=\"250px\" border=\"0\">\n";
 #print "<thead><TR><TH ALIGN=center ROWSPAN=1 BGCOLOR=\"#4169e1\"><FONT SIZE=\"+1\"; color=#ffffff>倉敷みなと大橋</FONT></TH></TR></thead>\n";
 print "<TR>\n";
 print "	<TD ALIGN=center ROWSPAN=1 BGCOLOR=\"#FFFFFF\"><FONT SIZE=\"-1\">\n";
