@@ -1,12 +1,14 @@
-.right-pos {
-	background-color: #ffffff;
+* {
+	margin: 0;
+	padding: 0;
 }
-p {
-  text-align: right;
-}
-.pad4_10	{ padding: 4px 10px; }
+
+.right-pos p {text-align: right;}
+
+.pad4_10 { padding: 4px 10px; }
+
 .btn_01 { text-align: center; text-decoration: none; 
-	color:  #000;	/* 文字色 */
+	color: #000;	/* 文字色 */
 	-webkit-border-radius: 3px; -moz-border-radius: 3px;
 	text-shadow: 0 -1px 1px #FFF, -1px 0 1px #FFF, 1px 0 1px #aaa;
 	-webkit-box-shadow: 1px 1px 2px #E7E7E7; -moz-box-shadow: 1px 1px 2px #E7E7E7;
@@ -16,58 +18,99 @@ p {
 	font-size: 100%; }
 
 .inner {
-	padding: 1;
+	padding: 1px;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 
 .gray-box{
-	width:140px;
-	height:30px;
-	color:  #fff;               /* 文字色 */
-	background:#808080;
-	border-radius:  2px;        /* 角丸指定 */
+	width: 140px;
+	height: 30px;
+	margin: 0px 1px;
+	color: #fff;               /* 文字色 */
+	background: #808080;
+	border-radius: 2px;        /* 角丸指定 */
 	font-size: 14px;
 	font-weight: bold;
-	text-align:center;
-	height:30px;
-	line-height:30px;
+	text-align: center;
+	line-height: 30px;
 }
 
 .blue-box{
-	width:140px;
-	height:30px;
-	color:  #fff;               /* 文字色 */
-	background:#4169e1;
-	border-radius:  2px;        /* 角丸指定 */
+	width: 140px;
+	height: 30px;
+	margin: 0px 1px;
+	color: #fff;               /* 文字色 */
+	background: #4169e1;
+	border-radius: 2px;        /* 角丸指定 */
 	font-size: 14px;
 	font-weight: bold;
-	text-align:center;
-	height:30px;
-	line-height:30px;
+	text-align: center;
+	line-height: 30px;
 }
 
+.camera {margin-top: 20px;}
+
+.button {margin: 0px 1px;}
+
+.button a {margin: 15px;}
+
 header {
-width: 292px;
-padding: 10px;
+padding: 20px;
 background: #4169e1;
 color: #FFF;
 }
 
 h1 {
 font-weight: bold;
-font-size: 100%;
+font-size: 5vw;
 }
 
 footer {
-width: 292px;
-padding: 10px;
+padding: 15px;
 background: #4169e1;
 color: #FFF;
 }
 
 f1 {
 font-weight: bold;
-font-size: 80%;
+font-size: 4vw;
 }
 
+body {
+	background: #ffffff;
+	color: #000000;
+}
+
+th {
+  background-color: #4169e1;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+tr:nth-child(even) {background-color: #dbeeff;}
+
+td {
+  text-align: center;
+  width: 28vw;
+  height: 10px;
+}
+
+.radio {
+	margin-top: 15px;
+	padding: 15px;
+}
+.dateselect {
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+input[type="radio"] {margin: 10px;}
+
+.date-input {
+	padding: 5px;
+	width: 100px;
+	text-align: center;
+}
